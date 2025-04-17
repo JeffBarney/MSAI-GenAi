@@ -10,6 +10,6 @@
 
 module purge
 eval "$(conda shell.bash hook)"
-# conda activate /home/sil3812/.conda/envs/genai I'm not sure what to do here
+conda activate /home/nee0873/.conda/envs/genai
 
 python log_resources.py
