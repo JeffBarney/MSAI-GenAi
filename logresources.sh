@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --account=p32562
+#SBATCH --account=e32706
 #SBATCH --partition=gengpu
 #SBATCH --gres=gpu:a100:1
 #SBATCH --time=00:10:00 
