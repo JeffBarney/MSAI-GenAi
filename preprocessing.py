@@ -57,6 +57,6 @@ def preprocess(images):
     dataset = tf.data.Dataset.from_tensor_slices(images)
     dataset = dataset.map(load_and_normalize, num_parallel_calls=tf.data.AUTOTUNE)
     dataset = dataset.shuffle(1000, seed=42)
-    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
     dataset = dataset.prefetch(tf.data.AUTOTUNE)
     return dataset
