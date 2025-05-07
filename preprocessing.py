@@ -4,14 +4,13 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-from hyperparameters import IMAGE_SIZE, BATCH_SIZE
+from hyperparameters import IMAGE_SIZE, BATCH_SIZE, DATA_DIR
 
 def sample_data():
-    root_dir = '../image-project-data'
-    test_dir = root_dir + '/test'
+    test_dir = DATA_DIR + '/dataset_test/dataset_test'
 
     # Fetch the styles from our csv of labels
-    raw_labels = pd.read_csv(root_dir + '/test_labels.csv')
+    raw_labels = pd.read_csv(DATA_DIR + '/test_labels.csv')
     styles = raw_labels['style'].dropna().unique()
     styles_sorted = sorted(styles)
 
@@ -30,19 +29,20 @@ def sample_data():
     return pd.DataFrame(rows)
 
 
-def fetch_data(train=True, num_per_label=math.inf):
-    data_dir = '../image-project-data/' + ('train' if train else 'test')
+def fetch_data(train=True, label_to_fetch=None, num_per_label=math.inf):
+    data_dir = DATA_DIR + ('/dataset_train/dataset_train' if train else '/dataset_test/dataset_test')
     data = []
 
     for label in os.listdir(data_dir):
         label_path = os.path.join(data_dir, label)
         num_images = 0
-        for image in os.listdir(label_path):
-            if num_images > num_per_label:
-                break
-            
-            data.append(os.path.join(label_path, image))
-            num_images+=1
+        if (not label_to_fetch) or (label == label_to_fetch):
+            for image in os.listdir(label_path):
+                if num_images > num_per_label:
+                    break
+                
+                data.append(os.path.join(label_path, image))
+                num_images+=1
 
     return data
 

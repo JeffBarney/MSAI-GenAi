@@ -1,6 +1,6 @@
 from tensorflow.keras import callbacks
 from display import display
-from hyperparameters import WEIGHT_PATH
+from hyperparameters import WEIGHT_PATH, PLOT_DIFFUSION_STEPS
 
 def model_checkpoint_callback():
     return callbacks.ModelCheckpoint(
@@ -19,14 +19,15 @@ class ImageGenerator(callbacks.Callback):
         self.num_img = num_img
 
     def on_epoch_end(self, epoch, logs=None):
-        generated_images = self.model.generate(
-            num_images=self.num_img,
-            diffusion_steps=PLOT_DIFFUSION_STEPS,
-        ).numpy()
-        display(
-            generated_images,
-            save_to="./output/generated_img_%03d.png" % (epoch),
-        )
+        if epoch % 10 == 0:
+            generated_images = self.model.generate(
+                num_images=self.num_img,
+                diffusion_steps=PLOT_DIFFUSION_STEPS,
+            ).numpy()
+            display(
+                generated_images,
+                # save_to="./output/generated_img_%03d.png" % (epoch),
+            )
 
 
 def image_generator_callback():

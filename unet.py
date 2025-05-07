@@ -3,12 +3,6 @@ import tensorflow as tf
 from tensorflow.keras import activations, layers, models
 from hyperparameters import NOISE_EMBEDDING_SIZE, IMAGE_SIZE
 
-def sinusoidal_embedding(x):
-    frequencies = tf.exp(tf.linspace( tf.math.log(1.0), tf.math.log(1000.0), NOISE_EMBEDDING_SIZE // 2))
-    angular_speeds = 2.0 * math.pi * frequencies
-    embeddings = tf.concat([tf.sin(angular_speeds * x), tf.cos(angular_speeds * x)], axis=3)
-    return embeddings
-
 def ResidualBlock(width):
     def apply(x):
         input_width = x.shape[3]
@@ -50,8 +44,14 @@ def get_unet():
     noisy_images = layers.Input(shape=(IMAGE_SIZE, IMAGE_SIZE, 3))
     x = layers.Conv2D(32, kernel_size=1)(noisy_images)
 
+    def sinusoidal_embedding(x):
+        frequencies = tf.exp(tf.linspace( tf.math.log(1.0), tf.math.log(1000.0), NOISE_EMBEDDING_SIZE // 2))
+        angular_speeds = 2.0 * math.pi * frequencies
+        embeddings = tf.concat([tf.sin(angular_speeds * x), tf.cos(angular_speeds * x)], axis=3)
+        return embeddings
+
     noise_variances = layers.Input(shape=(1, 1, 1))
-    noise_embedding = layers.Lambda(lambda x: sinusoidal_embedding(x), output_shape=(1, 1, 32))(noise_variances)
+    noise_embedding = layers.Lambda(lambda x: sinusoidal_embedding(x))(noise_variances)
     noise_embedding = layers.UpSampling2D(size=IMAGE_SIZE, interpolation="nearest")(noise_embedding)
 
     x = layers.Concatenate()([x, noise_embedding])
