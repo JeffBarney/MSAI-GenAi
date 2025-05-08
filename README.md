@@ -1,5 +1,12 @@
 # **FurnitureGen**: AI-Powered Interior Design Generator
 
+## Best Generated Output
+Although the "best" output from my model depends slightly on your interior design taste, I especially liked this image from the 80th training epoch:
+
+![best-output](./Best-output.png)
+
+---
+
 ## Vision
 For interior designers, homeowners, and decorators seeking quick and imaginative design inspiration, **FurnitureGen** is a generative AI tool that creates photorealistic images of furnished spaces and helps users shop for the items they see.
 
