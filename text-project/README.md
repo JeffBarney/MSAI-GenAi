@@ -9,17 +9,21 @@ I thought the best output from my model was for the drama titled "Blueming". The
 ---
 
 ## Vision
-The global streaming market for Korean dramas continues to surge, driven by platforms like Netflix, Viki, and Disney+. K-Dramas now attract global audiences across North America, Southeast Asia, and Latin America. However, with thousands of shows available, viewers struggle to efficiently evaluate what to watch next. Quick, sentiment-driven summaries can bridge this gap, improving content discovery and enhancing viewer satisfaction.
+For global K-Drama fans and content platforms overwhelmed by hundreds of available shows, **K-Drama Browser** is an AI-powered tool that generates concise, sentiment-based summaries to help users quickly understand the emotional tone, genre, and storyline arc of a drama — without reading lengthy reviews or risking spoilers.
+
+Unlike static descriptions or manually written summaries, **K-Drama Browser** dynamically distills real audience sentiment into short, personalized blurbs that enhance content discovery and decision-making.
 
 ---
 
 ## Motivation
-TODO
+As the K-Drama industry expands internationally, audiences face growing friction in deciding what to watch next. Reviews are often long, biased, or spoil key plot points, and platform descriptions are too vague to be useful.
+
+Meanwhile, viewer emotion — the *vibe* of a show — is what most people care about. With advances in text summarization and sentiment-aware models, we now have the opportunity to generate summaries that reflect how a show *feels* to real viewers — making browsing faster, more intuitive, and more satisfying.
 
 ---
 
 ## **Market Opportunity**
-TODO
+Korean dramas have become a global phenomenon, with streaming platforms like Netflix reporting that over 60% of their subscribers have watched Korean content. In 2024 alone, Netflix's top 10 Korean dramas amassed over 5.9 billion viewing hours and 644.8 million views. This surge in popularity underscores a significant demand for tools that enhance content discovery and user engagement. [source 1,](https://flixpatrol.com/most-watched/2024/tv-shows-from-south-korea/) [source 2](https://www.koreatimes.co.kr/entertainment/films/20250218/korean-movies-thrive-despite-overall-market-slump-in-2024)
 
 ---
 
@@ -30,7 +34,7 @@ _Note: these personas are fictional, illustrative descriptions of potential cust
 Mina just finished her last show and is scrolling through a long list of K-Dramas. She doesn’t want spoilers but wishes she had a quick sense of whether a show is romantic, sad, or slow-paced. With **K-Drama Browser**, she can skim brief, tone-aware summaries to find her next pick.
 
 ### Persona 2: Daniel – The Content Curator
-Daniel runs a K-Drama recommendation blog. He needs concise blurbs for each show but doesn’t have time to write them all. With **K-Drama Browser**, he can generate summaries based on real user sentiment and fine-tune them for his posts.
+Daniel runs a K-Drama blog. He needs concise blurbs for each show but doesn’t have time to write them all. With **K-Drama Browser**, he can generate summaries based on real user sentiment and fine-tune them for his posts.
 
 ### Unmet Customer Needs
 - Users want faster ways to assess tone and content of dramas without reading dozens of reviews.
